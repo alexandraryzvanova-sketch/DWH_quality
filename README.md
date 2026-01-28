@@ -1,2 +1,2 @@
-# DWH_spotifydataset_quality
+# DWH_dota2_quality
 Прототип небольшого DWH для анализа качества данных
