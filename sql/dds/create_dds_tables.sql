@@ -1,31 +1,40 @@
 create schema if not exists dds;
 
--- Измерение: годы
+--Измерение ГОД
+
 create table if not exists dds.dim_year (
     year_id serial primary key,
-    year int unique
+    year int unique not null
 );
 
--- Измерение: команды
+
+--Измерение КОМАНДА
+
 create table if not exists dds.dim_team (
     team_id serial primary key,
-    team_name text unique
+    team_name text unique not null
 );
 
--- Измерение: игроки
+
+--Измерение ИГРОК
+
 create table if not exists dds.dim_player (
     player_id serial primary key,
-    player_name text unique
+    player_name text unique not null
 );
 
--- Измерение: страны
+
+--Измерение СТРАНА
+
 create table if not exists dds.dim_country (
     country_id serial primary key,
-    country_name text unique
+    country text unique not null
 );
 
--- Измерение: герои
+
+--Измерение ГЕРОЙ
+
 create table if not exists dds.dim_hero (
     hero_id serial primary key,
-    hero_name text unique
+    hero text unique not null
 );
