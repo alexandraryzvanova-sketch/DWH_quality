@@ -21,7 +21,7 @@ data/processed/winners_top3.csv
 
  7. Проверить настройки:
  Delimiter: ,
- Header: ✔
+ Header: +
  Encoding: UTF-8
  8. Finish
 
