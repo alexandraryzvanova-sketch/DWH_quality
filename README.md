@@ -46,6 +46,7 @@ https://www.kaggle.com/datasets/arpan129/dota-2-the-international-complete-datas
     
 requirements.txt  # Зависимости Python для воспроизводимого окружения
 
+
 ETL_Dota2_TI.ipynb # ETL пайплайн
 
 # ETL-процесс (Colab)
