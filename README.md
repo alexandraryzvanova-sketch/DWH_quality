@@ -9,6 +9,13 @@
 Проект организован по классической архитектуре Stage → DDS → DM.
 
 # Источники данных
+
+Данные были скачаны с открытого набора на Kaggle: "DOTA 2 The International Dataset (2011-2021)"
+
+https://www.kaggle.com/datasets/arpan129/dota-2-the-international-complete-dataset/data
+
+и сохранены в папку /data/raw/
+
 Исходные наборы данных включают:
 
  • Результаты турниров (топ-3 команд и призовой фонд)
