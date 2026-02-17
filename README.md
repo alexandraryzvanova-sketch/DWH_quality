@@ -117,3 +117,54 @@ output_path = "/content/"
  
  • teams.csv
 
+# SQL-процесс и слои DWH
+
+Локальная PostgreSQL
+
+ • Сервер: PostgreSQL, локально на компьютере
+ 
+ • Подключение через DBeaver:
+
+db_user = 'postgres'
+
+db_password = 'superkroshka1'
+
+db_host = 'localhost'
+
+db_port = '5432'
+
+db_name = 'dota_dwh'
+
+ • Назначение: хранение всех слоев DWH и построение витрин/фактов для аналитики
+
+# Слои DWH и их создание
+
+Проект реализован по классической архитектуре Stage → DDS → DM.
+
+Stage
+
+Назначение: сырой слой, хранение данных из CSV без трансформаций
+
+Файлы в репозитории:
+
+ • sql/stage/create_stage_tables.sql — создание схемы и таблиц
+ 
+ • sql/stage/load_stage.md — инструкция по загрузке данных из CSV (data/processed/*.csv) вручную через DBeaver
+
+Очищенные CSV из ETL-пайплайна сохраняются в папку /data/processed/
+
+Далее они загружаются в PostgreSQL локально на компьютере с помощью DBeaver.
+
+Схема загрузки:
+
+Таблица Stage → CSV-файл
+
+stage.winners_raw winners_top3.csv
+
+stage.teams_raw teams.csv
+
+stage.country_raw country.csv
+
+stage.hero_picks_raw hero_picks.csv
+
+ • load_stage.md инструкция как данные загружались в Stage вручную из очищенных CSV
