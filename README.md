@@ -121,9 +121,9 @@ output_path = "/content/"
 
 Локальная PostgreSQL
 
- • Сервер: PostgreSQL, локально на компьютере
+ Сервер: PostgreSQL, локально на компьютере
  
- • Подключение через DBeaver:
+ Подключение через DBeaver:
 
 db_user = 'postgres'
 
