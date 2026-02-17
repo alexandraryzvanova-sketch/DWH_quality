@@ -135,13 +135,13 @@ db_port = '5432'
 
 db_name = 'dota_dwh'
 
- • Назначение: хранение всех слоев DWH и построение витрин/фактов для аналитики
+Назначение: хранение всех слоев DWH и построение витрин/фактов для аналитики
 
 # Слои DWH и их создание
 
 Проект реализован по классической архитектуре Stage → DDS → DM.
 
-Stage
+# Stage
 
 Назначение: сырой слой, хранение данных из CSV без трансформаций
 
@@ -168,3 +168,71 @@ stage.country_raw country.csv
 stage.hero_picks_raw hero_picks.csv
 
  • load_stage.md инструкция как данные загружались в Stage вручную из очищенных CSV
+
+# DDS
+
+Назначение: нормализованные таблицы измерений (dim_*), справочники
+Файлы в репозитории:
+ • sql/dds/create_dds_tables.sql — создание нормализованных таблиц
+ • sql/dds/load_dds_table.sql — загрузка данных в DDS из Stage
+
+Измерения (dim_*):
+
+Таблица Ключ Атрибуты
+
+dim_year year_id  - year
+
+dim_team team_id - team_name
+
+dim_player player_id - player_name
+
+dim_country country_id - country
+
+dim_hero hero_id - hero
+
+# DM
+
+Назначение: факты (fact_*) и аналитические витрины для построения дашбордов
+
+Файлы в репозитории:
+
+ • sql/dm/create_dm_tables.sql — создание таблиц фактов
+ 
+ • sql/dm/load_dm_facts.sql — загрузка фактов из DDS
+ 
+ • sql/dm/add_foreign_keys.sql — настройка внешних ключей и связей между таблицами
+
+Факты (fact_*):
+
+Таблица Гранулярность Ключи Меры / Атрибуты
+
+f_winners_top3 одна строка на год и место year_id, team_id, place prize_usd, prize_percent
+
+f_team_roster год, команда, игрок year_id, team_id, player_id role
+
+f_hero_picks год и герой year_id, hero_id times_picked
+
+f_player_country год и игрок year_id, player_id, country_id —
+
+Пример аналитики:
+
+Для расчета заработка по странам используется цепочка:
+
+f_winners_top3 → f_team_roster → f_player_country → dim_country
+
+То есть одна строка факта с топ‑3 победителем соединяется с игроками команды, затем с их странами, и агрегируется для отчета.
+
+Воспроизводимость
+
+ Все SQL-скрипты и инструкции хранятся в репозитории и позволяют полностью воспроизвести слои Stage, DDS и DM.
+ 
+ CSV-файлы для Stage находятся в /data/processed/.
+ 
+ Проверяющий может:
+ 
+ 1. Создать базу на локальном PostgreSQL
+
+ 2. Запустить SQL-скрипты по порядку: Stage → DDS → DM
+   
+ 3. Проверить загрузку данных и связи между таблицами
+ 
