@@ -8,4 +8,4 @@ FROM dm.f_winners_top3 f
 JOIN dds.dim_team dt   ON dt.team_id = f.team_id
 JOIN dds.dim_year dy   ON dy.year_id = f.year_id
 GROUP BY dy.year, dt.team_name
-ORDER BY dy.year, total_prize_usd DESC;
+ORDER BY total_prize_usd DESC;
