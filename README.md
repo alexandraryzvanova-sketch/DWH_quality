@@ -201,11 +201,11 @@ dim_hero hero_id - hero
 
 Файлы в репозитории:
 
- • sql/dm/create_dm_tables.sql — создание таблиц фактов
+ • sql/dm/create_dm_tables.sql - создание таблиц фактов
  
- • sql/dm/load_dm_facts.sql — загрузка фактов из DDS
+ • sql/dm/load_dm_facts.sql - загрузка фактов из DDS
  
- • sql/dm/add_foreign_keys.sql — настройка внешних ключей и связей между таблицами
+ • sql/dm/add_foreign_keys.sql - настройка внешних ключей и связей между таблицами
 
 Факты (fact_*):
 
@@ -292,11 +292,11 @@ mart_team_top3_frequency.sql - Частота попадания команд в
 
 mart_hero_popularity.sql - Популярность героев по годам.
 
- Гранулярность: год – герой
+ Гранулярность: год - герой
  
  Метрика:
  
- times_picked — количество выборов героя.
+ times_picked - количество выборов героя.
  
  Позволяет анализировать:
  
