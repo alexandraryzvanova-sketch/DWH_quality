@@ -45,6 +45,8 @@ https://www.kaggle.com/datasets/arpan129/dota-2-the-international-complete-datas
     /dm         # Скрипты для фактов и измерений DM
 
     /marts     # Аналитические представления
+
+    /dashboard_queries     # Запросы специально для дашбордов
     
 requirements.txt  # Зависимости Python для воспроизводимого окружения
 
