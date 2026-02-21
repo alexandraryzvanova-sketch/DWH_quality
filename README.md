@@ -334,19 +334,17 @@ mart_hero_popularity.sql - Популярность героев по годам
 
 Здесь находятся SQL-запросы, которые используются для построения конкретных визуализаций в Yandex DataLens.
 
- sql/
-├──  marts/                    -- Витрины данных (аналитические слои)
-│   ├── mart_hero_popularity.sql
-│   ├── mart_player_income.sql
-│   ├── mart_team_prize.sql
-│   └── mart_team_top3_frequency.sql
-│
-└──  dashboard_queries/         -- Запросы специально для дашбордов
-    ├── 01_team_success.sql       -- Самые успешные команды
-    ├── 02_prize_dynamics.sql     -- Динамика призовых по годам
-    ├── 03_country_earnings.sql   -- Заработок по странам
-    ├── 04_hero_meta.sql          -- Топ-5 героев по годам
-    └── 05_team_rosters.sql       -- Составы победителей
+ sql/ dashboard_queries/         -- Запросы специально для дашбордов
+ 
+ 01_team_success.sql       -- Самые успешные команды
+ 
+ 02_prize_dynamics.sql     -- Динамика призовых по годам
+ 
+ 03_country_earnings.sql   -- Заработок по странам
+ 
+ 04_hero_meta.sql          -- Топ-5 героев по годам
+ 
+ 05_team_rosters.sql       -- Составы победителей
 
 ## Использование
 
