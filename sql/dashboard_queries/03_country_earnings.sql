@@ -17,3 +17,5 @@ FROM player_earnings pe
 JOIN dds.dim_country c ON pe.country_id = c.country_id
 GROUP BY c.country_name
 ORDER BY total_prize_usd DESC;
+
+--с помощью deepseek были добавлены в готовый csv поля latitude, longitude 
